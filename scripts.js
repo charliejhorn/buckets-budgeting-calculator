@@ -31,16 +31,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     noUiSlider.create(slider, {
         start: sliderValues, // Starting points of the handles
         connect: false, // Display a colored bar between the handles
-        step: 5, // Increment of the handles
+        step: 2.5, // Increment of the handles
         range: {
             'min': 0,
             'max': 100
         },
         tooltips: true, // Display the value of the handle when moving
         format: wNumb({
-            decimals: 0,
-            thousand: '.',
-            postfix: '%'
+            suffix: '%',
+            decimals: 1,
+            thousand: ','
         }),
         margin: 5,
     });
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     slider.noUiSlider.on('slide', function (values, handle) {
         console.log(values[handle]); // Log the value of the handle being moved
         // slice the last character of the value off, which is the percentage sign, then return an integer
-        values = values.map(value => parseInt(value.slice(0, -1)));
+        values = values.map(value => parseFloat(value.slice(0, -1)));
         percentages = getPercentages(values);
 
         console.log("percentages: ", percentages);
