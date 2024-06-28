@@ -2,7 +2,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let amountInput = document.getElementById('amount-input');
     amountInput.focus();
 
+    let calculatingBool = false;
+
     let currentAmount = 0;
+
+    let results = {
+        expenses: 0,
+        fire: 0,
+        smile: 0,
+        splurge: 0
+    }
 
     let percentages = {
         expenses: 60,
@@ -11,6 +20,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
         splurge: 10
     };
 
+    let elements = {
+        expensesP: document.getElementById('expenses-result'),
+        fireP: document.getElementById('fire-result'),
+        smileP: document.getElementById('smile-result'),
+        splurgeP: document.getElementById('splurge-result')
+    }
+
     let sliderValues = getSliderValues(percentages);
 
     console.log("initial percentages: ", percentages);
@@ -18,11 +34,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // event listener for the input field for every keyup event
     amountInput.addEventListener('keyup', () => {
+        if (calculatingBool) {
+            return;
+        }
+        calculatingBool = true;
         setTimeout(() => {
             currentAmount = parseFloat(amountInput.value);
-            calculateResults(currentAmount, percentages);
+            results = calculateResults(currentAmount, percentages);
+            displayResults(elements, results);
             console.log(currentAmount)
-        }, 10);
+            calculatingBool = false;
+        }, 500);
     });
 
     // slider
@@ -54,7 +76,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         console.log("percentages: ", percentages);
         console.log("values: ", values);
-        calculateResults(currentAmount, percentages);
+        results = calculateResults(currentAmount, percentages);
+        displayResults(elements, results);
     });
 });
 
@@ -71,20 +94,19 @@ function calculateResults(amount, percentages) {
     results.smile = amount * percentages.smile / 100;
     results.splurge = amount* percentages.splurge / 100;
 
-    displayResults(results)
+    console.log("calculateResults: ", results);
+
+    return results;
 }
 
-function displayResults(results) {
-    let expensesP = document.getElementById('expenses-result');
-    let fireP = document.getElementById('fire-result');
-    let smileP = document.getElementById('smile-result');
-    let splurgeP = document.getElementById('splurge-result');
-
+function displayResults(elements, results) {
     // set each of the elements to the results in the format of $0.00
-    expensesP.textContent = '$' + results.expenses.toFixed(2);
-    fireP.textContent = '$' + results.fire.toFixed(2);
-    smileP.textContent = '$' + results.smile.toFixed(2);
-    splurgeP.textContent = '$' + results.splurge.toFixed(2);
+    elements.expensesP.textContent = '$' + results.expenses.toFixed(2);
+    elements.fireP.textContent = '$' + results.fire.toFixed(2);
+    elements.smileP.textContent = '$' + results.smile.toFixed(2);
+    elements.splurgeP.textContent = '$' + results.splurge.toFixed(2);
+
+    console.log("displayed results")
 }
 
 function getSliderValues(percentages) {
