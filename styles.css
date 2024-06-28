@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+}
+
+main {
+    padding: 4em;
+    font-family: "Poppins", sans-serif;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.dollar-input {
+    font-size: 2em;
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5em;
+}
+
+.dollar-input p {
+    margin: 0;
+}
+
+.input-container input,
+.input-container input:focus,
+.input-container input:active,
+.input-container input:hover {
+    border: none;
+    outline: none;
+    padding: 0;
+    font: inherit;
+    margin-left: 0.25em;
+}
+
+/* REMOVING THE SPINNER/ARROWS */
+/* Targeting the number input specifically */
+.input-container input[type="number"],
+.input-container input[type="number"]:focus,
+.input-container input[type="number"]:hover {
+    -webkit-appearance: none; /* For Chrome, Safari */
+    -moz-appearance: textfield; /* For Firefox */
+}
+
+/* Removing the inner spin button in WebKit browsers */
+.input-container input[type="number"]::-webkit-inner-spin-button,
+.input-container input[type="number"]:focus::-webkit-inner-spin-button,
+.input-container input[type="number"]:hover::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Removing the outer spin button in WebKit browsers */
+.input-container input[type="number"]::-webkit-outer-spin-button,
+.input-container input[type="number"]:focus::-webkit-outer-spin-button,
+.input-container input[type="number"]:hover::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
+/* SLIDER */
+.slider-container {
+    margin-top: 2em;
+}
+
+#percentages-slider {
+    height: 10px;
+}
+
+#percentages-slider .noUi-handle {
+    height: 18px;
+    width: 18px;
+    top: -5px;
+    right: -9px; /* half the width */
+    border-radius: 9px;
+}
+
+
+/* RESULTS */
+.all-results-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 4em;
+    justify-content: space-between;
+}
+
+.result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+    background-color: #BDE9EF;
+    gap: 0.5em;
+    border-radius: 1em;
+}
+
+.result-container h2,
+.result-container p {
+    margin: 0;
+}
+
+.result-container h2 {
+    font-size: 2em;
+}
+
+.result-container p {
+    font-size: 1.5em;
+}

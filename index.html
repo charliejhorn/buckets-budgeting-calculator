@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buckets Calculator</title>
+    <link rel="icon" href="favicon.svg">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- noUiSlider default styling -->
+    <link href="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.css" rel="stylesheet">
+
+    <!-- My styling -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+
+        <div class="title-container">
+            <h1>Buckets Calculator</h1>
+        </div>
+
+        <div class="input-container">
+            <label for="amount-input">Enter the amount deposited into the Capture account:</label>
+            <div class="dollar-input">
+                <p>$</p>
+                <input type="number" id="amount-input">    
+            </div>
+        </div>
+
+        <div class="slider-container">
+            <p >Adjust the buckets:</p>
+            <div id="percentages-slider"></div>
+        </div>
+
+        <div class="all-results-container">
+            <div class="expenses-container result-container">
+                <h2>Expenses</h2>
+                <p id="expenses-result">$0.00</p>
+            </div>
+            <div class="fire-container result-container">
+                <h2>Fire</h2>
+                <p id="fire-result">$0.00</p>
+            </div>
+            <div class="smile-container result-container">
+                <h2>Smile</h2>
+                <p id="smile-result">$0.00</p>
+            </div>
+            <div class="splurge-container result-container">
+                <h2>Splurge</h2>
+                <p id="splurge-result">$0.00</p>
+            </div>
+        </div>
+
+    </main>
+</body>
+<script src="scripts.js"></script>
+<script src="wNumb.js"></script>
+
+<!-- noUiSlider -->
+<script src="https://cdn.jsdelivr.net/npm/nouislider/distribute/nouislider.min.js"></script>
+</html>
