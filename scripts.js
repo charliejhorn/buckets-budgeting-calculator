@@ -55,7 +55,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         console.log("percentages: ", percentages);
         console.log("values: ", values);
         calculateResults(currentAmount, percentages);
-        displayResults(percentages);
     });
 });
 
